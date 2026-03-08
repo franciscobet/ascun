@@ -37,6 +37,11 @@ try:
     if not events:
         events = [
             {
+                "title": "⚽ Fútbol ASCUN: Sergio Arboleda vs U. de la Sabana",
+                "start": "2026-03-10T12:00:00",
+                "location": "Cancha Universidad de la Sabana"
+            },
+            {
                 "title": "Fútbol Sala ASCUN: Sergio Arboleda vs U. Nacional",
                 "start": "2026-03-15T14:00:00",
                 "location": "Coliseo Universidad Nacional"
@@ -61,7 +66,7 @@ except Exception as e:
     print(f"Error scraping: {e}")
     # Write mock data on error so github page doesn't break
     events = [
-        {"title": "Fútbol Seleccion: Sergio Arboleda vs Rosario", "start": "2026-03-16T10:00:00", "location": "Cancha 1"}
+        {"title": "Fútbol Seleccion: Sergio Arboleda vs Rosario", "start": "2026-03-10T10:00:00", "location": "Cancha 1"}
     ]
     with open('data.json', 'w', encoding='utf-8') as f:
         json.dump(events, f, ensure_ascii=False, indent=4)
