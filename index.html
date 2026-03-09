@@ -150,6 +150,9 @@
     <header>
         <h1>ASCUN Deportes Bogotá</h1>
         <p class="subtitle">Fixture Oficial - Universidad Sergio Arboleda</p>
+        <button id="notifyBtn"
+            style="background: linear-gradient(135deg, var(--sergio-gold), #b5952f); color: var(--sergio-blue); font-family: 'Montserrat', sans-serif; border: none; padding: 10px 20px; font-size: 0.9rem; font-weight: 800; border-radius: 20px; cursor: pointer; text-transform: uppercase; box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); transition: all 0.3s ease; margin-top: 15px; display: inline-flex; align-items: center; gap: 8px;">🔔
+            Activar Alertas de Partidos</button>
     </header>
 
     <main>
@@ -178,6 +181,38 @@
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/locales/es.js'></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Permission Logic
+            const notifyBtn = document.getElementById('notifyBtn');
+
+            if ('serviceWorker' in navigator && 'Notification' in window) {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('Service Worker Registered!', reg))
+                    .catch(err => console.error('Service Worker Registration Failed!', err));
+
+                notifyBtn.addEventListener('click', () => {
+                    Notification.requestPermission().then(permission => {
+                        if (permission === 'granted') {
+                            alert("¡Las alertas para el Torneo ASCUN están activadas! Recibirás avisos horas antes de cada partido de La Sergio.");
+                            notifyBtn.style.display = 'none';
+
+                            // Send welcome notification
+                            new Notification("Alertas ASCUN Activas", {
+                                body: "Bot programado exitosamente. La Sergio Arboleda te necesita.",
+                                icon: "https://bogotaclausura2610.ascundeportes.org/uploads/c8ddd89739431c7edb933831ce2c89bd23f1e0f7.jpg"
+                            });
+                        } else {
+                            alert("Permisos denegados. No podremos avisarte de los partidos.");
+                        }
+                    });
+                });
+
+                if (Notification.permission === 'granted') {
+                    notifyBtn.style.display = 'none';
+                }
+            } else {
+                notifyBtn.style.display = 'none';
+            }
+
             var calendarEl = document.getElementById('calendar');
             var modal = document.getElementById("eventModal");
             var span = document.getElementsByClassName("close")[0];
