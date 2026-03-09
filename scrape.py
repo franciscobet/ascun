@@ -16,18 +16,46 @@ try:
     # In the new site format, matches are usually listed in list-group-items
     found_elements = soup.find_all('a', class_=re.compile('list-group-item'))
     
+    # Spanish month mapping to numbers
+    meses = {
+        'ene': '01', 'feb': '02', 'mar': '03', 'abr': '04', 
+        'may': '05', 'jun': '06', 'jul': '07', 'ago': '08', 
+        'sep': '09', 'oct': '10', 'nov': '11', 'dic': '12'
+    }
+
     for element in found_elements:
         title_el = element.find('h4')
         if title_el:
             info_text = element.get_text(separator=' | ').strip()
             
-            # Extract date if possible, else default to today
-            # We don't have exact year from 'mar 09', so default parsing logic
+            # Fallback values
+            start_date = datetime.now().strftime("%Y-%m-%d")
+            location_idx = "Sede por confirmar"
+            
+            # Try to extract the date like "mar 10 | 14:00"
+            lines = [line.strip() for line in info_text.split('|') if line.strip()]
+            
+            if len(lines) > 2:
+                date_part = lines[0].lower() # e.g. "mar 10"
+                time_part = lines[1] # e.g. "14:00"
+                
+                parts = date_part.split()
+                if len(parts) >= 2:
+                    mes_texto = parts[0][:3]
+                    dia = parts[1].zfill(2)
+                    mes = meses.get(mes_texto, '03')
+                    # Format: 2026-MM-DDTHH:MM:00
+                    start_date = f"2026-{mes}-{dia}T{time_part}:00"
+            
+            # The literal location is usually the second to last line in the new format
+            if len(lines) > 5:
+                location_idx = lines[-1]
+            
             events.append({
                 "title": title_el.get_text(strip=True),
                 "raw_text": info_text,
-                "start": datetime.now().strftime("%Y-%m-%d"),
-                "location": "Sede por confirmar"
+                "start": start_date,
+                "location": location_idx
             })
             
     # Mock some data if nothing is found so the calendar isn't empty on first load.
