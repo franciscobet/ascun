@@ -24,39 +24,43 @@ try:
     }
 
     for element in found_elements:
-        title_el = element.find('h4')
-        if title_el:
-            info_text = element.get_text(separator=' | ').strip()
-            
-            # Fallback values
-            start_date = datetime.now().strftime("%Y-%m-%d")
-            location_idx = "Sede por confirmar"
-            
-            # Try to extract the date like "mar 10 | 14:00"
-            lines = [line.strip() for line in info_text.split('|') if line.strip()]
-            
-            if len(lines) > 2:
-                date_part = lines[0].lower() # e.g. "mar 10"
-                time_part = lines[1] # e.g. "14:00"
+        try:
+            title_el = element.find('h4')
+            if title_el:
+                info_text = element.get_text(separator=' | ').strip()
                 
-                parts = date_part.split()
-                if len(parts) >= 2:
-                    mes_texto = parts[0][:3]
-                    dia = parts[1].zfill(2)
-                    mes = meses.get(mes_texto, '03')
-                    # Format: 2026-MM-DDTHH:MM:00
-                    start_date = f"2026-{mes}-{dia}T{time_part}:00"
-            
-            # The literal location is usually the second to last line in the new format
-            if len(lines) > 5:
-                location_idx = lines[-1]
-            
-            events.append({
-                "title": title_el.get_text(strip=True),
-                "raw_text": info_text,
-                "start": start_date,
-                "location": location_idx
-            })
+                # Fallback values
+                start_date = datetime.now().strftime("%Y-%m-%d")
+                location_idx = "Sede por confirmar"
+                
+                # Try to extract the date like "mar 10 | 14:00"
+                lines = [line.strip() for line in info_text.split('|') if line.strip()]
+                
+                if len(lines) > 2:
+                    date_part = lines[0].lower() # e.g. "mar 10"
+                    time_part = lines[1] # e.g. "14:00"
+                    
+                    parts = date_part.split()
+                    if len(parts) >= 2:
+                        mes_texto = parts[0][:3]
+                        dia = parts[1].zfill(2)
+                        mes = meses.get(mes_texto, '03')
+                        # Format: 2026-MM-DDTHH:MM:00
+                        start_date = f"2026-{mes}-{dia}T{time_part}:00"
+                
+                # The literal location is usually the second to last line in the new format
+                if len(lines) > 5:
+                    location_idx = lines[-1]
+                
+                events.append({
+                    "title": title_el.get_text(strip=True),
+                    "raw_text": info_text,
+                    "start": start_date,
+                    "location": location_idx
+                })
+        except Exception as item_error:
+            print(f"Skipping malformed match element: {item_error}")
+            continue
             
     # Mock some data if nothing is found so the calendar isn't empty on first load.
     if not events:
@@ -88,10 +92,10 @@ try:
         print("Data scraped and saved to data.json")
 
 except Exception as e:
-    print(f"Error scraping: {e}")
-    # Write mock data on error so github page doesn't break
+    print(f"Critical error fetching website: {e}")
+    # Write mock data on total network failure so github page doesn't break
     events = [
-        {"title": "Fútbol Seleccion: Sergio Arboleda vs Rosario", "start": "2026-03-10T10:00:00", "location": "Cancha 1"}
+        {"title": "Error de Red - Partidos no cargados", "start": "2026-03-10T10:00:00", "location": "N/A"}
     ]
     with open('data.json', 'w', encoding='utf-8') as f:
         json.dump(events, f, ensure_ascii=False, indent=4)
