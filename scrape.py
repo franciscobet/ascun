@@ -4,7 +4,7 @@ import json
 import re
 from datetime import datetime
 
-url = 'https://ascundeportes.org/categoria/bogota/'
+url = 'https://bogotaclausura2610.ascundeportes.org/organizacion/organizacion/4'
 headers = {'User-Agent': 'Mozilla/5.0'}
 events = []
 
@@ -13,24 +13,21 @@ try:
     html = urllib.request.urlopen(req).read()
     soup = BeautifulSoup(html, 'html.parser')
     
-    # We will search the entire document for text mentioning "Sergio Arboleda"
-    # and try to extract the surrounding tr (table row) or div container
-    target_text = "Sergio Arboleda"
-    found_elements = soup.find_all(text=re.compile(target_text, re.IGNORECASE))
+    # In the new site format, matches are usually listed in list-group-items
+    found_elements = soup.find_all('a', class_=re.compile('list-group-item'))
     
     for element in found_elements:
-        parent = element.find_parent('tr')
-        if not parent:
-            parent = element.find_parent('div', class_=re.compile('row|event|match'))
-        
-        if parent:
-            text_block = parent.get_text(separator=' | ').strip()
-            # Simple heuristic extraction since exact schema is unknown
+        title_el = element.find('h4')
+        if title_el:
+            info_text = element.get_text(separator=' | ').strip()
+            
+            # Extract date if possible, else default to today
+            # We don't have exact year from 'mar 09', so default parsing logic
             events.append({
-                "title": "Partido ASCUN - Sergio Arboleda",
-                "raw_text": text_block,
-                "start": datetime.now().strftime("%Y-%m-%d"), # Default to today if hard to parse
-                "location": "Sede Deportiva"
+                "title": title_el.get_text(strip=True),
+                "raw_text": info_text,
+                "start": datetime.now().strftime("%Y-%m-%d"),
+                "location": "Sede por confirmar"
             })
             
     # Mock some data if nothing is found so the calendar isn't empty on first load.
