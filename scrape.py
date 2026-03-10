@@ -115,9 +115,9 @@ try:
     # Inject manual events that are not yet officially listed on the ASCUN site
     manual_events = [
         {
-            "title": "⚽ Torneo de Fútbol Sala Masculino",
-            "raw_text": "Partido programado manualmente por el usuario. | Equipo: Universidad Sergio Arboleda",
-            "start": "2026-03-13T14:00:00",
+            "title": "⚽ F1.1 Grupo - Torneo de Fútbol Sala Masculino",
+            "raw_text": "Partido programado manualmente | Universidad Sergio Arboleda vs Universidad Nacional",
+            "start": "2026-03-13T17:00:00",
             "location": "Sede por confirmar"
         }
     ]
