@@ -112,6 +112,19 @@ try:
             }
         ]
         
+    # Inject manual events that are not yet officially listed on the ASCUN site
+    manual_events = [
+        {
+            "title": "⚽ Torneo de Fútbol Sala Masculino",
+            "raw_text": "Partido programado manualmente por el usuario. | Equipo: Universidad Sergio Arboleda",
+            "start": "2026-03-13T14:00:00",
+            "location": "Sede por confirmar"
+        }
+    ]
+    
+    # Merge scraped events with manual events
+    events.extend(manual_events)
+    
     with open('data.json', 'w', encoding='utf-8') as f:
         json.dump(events, f, ensure_ascii=False, indent=4)
         print("Data scraped and saved to data.json")
