@@ -3,16 +3,31 @@ from bs4 import BeautifulSoup
 import json
 import re
 from datetime import datetime
+import random
+import time
 
 url = 'https://bogotaclausura2610.ascundeportes.org/organizacion/organizacion/4'
+
+user_agents = [
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Safari/605.1.15',
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/112.0',
+    'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36',
+    'Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1'
+]
+
 headers = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+    'User-Agent': random.choice(user_agents),
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
     'Accept-Language': 'es-ES,es;q=0.9,en;q=0.8'
 }
 events = []
 
 try:
+    # Polite wait to mimic human typing the URL (between 1 to 5 seconds)
+    print("Iniciando modo fantasma. Esperando...")
+    time.sleep(random.uniform(1.5, 4.5))
+    
     req = urllib.request.Request(url, headers=headers)
     # Added strict timeout of 15 seconds to prevent Actions from hanging forever
     html = urllib.request.urlopen(req, timeout=15).read()

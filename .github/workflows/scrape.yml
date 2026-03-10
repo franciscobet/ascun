@@ -21,6 +21,11 @@ jobs:
         run: |
           pip install -r requirements.txt
 
+      - name: Wait Random Duration (Jitter)
+        run: |
+          echo "Waiting a random time up to 45 mins to avoid bot bans..."
+          sleep $((RANDOM % 2700))
+
       - name: Run scraper
         run: |
           python scrape.py
