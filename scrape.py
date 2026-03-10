@@ -5,12 +5,17 @@ import re
 from datetime import datetime
 
 url = 'https://bogotaclausura2610.ascundeportes.org/organizacion/organizacion/4'
-headers = {'User-Agent': 'Mozilla/5.0'}
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+    'Accept-Language': 'es-ES,es;q=0.9,en;q=0.8'
+}
 events = []
 
 try:
     req = urllib.request.Request(url, headers=headers)
-    html = urllib.request.urlopen(req).read()
+    # Added strict timeout of 15 seconds to prevent Actions from hanging forever
+    html = urllib.request.urlopen(req, timeout=15).read()
     soup = BeautifulSoup(html, 'html.parser')
     
     # In the new site format, matches are usually listed in list-group-items
