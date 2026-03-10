@@ -134,6 +134,38 @@
             color: #555;
         }
 
+        .accompanier-input-group {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed #ccc;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .accompanier-input-group input {
+            flex-grow: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .accompanier-input-group button {
+            background-color: var(--sergio-gold);
+            color: var(--sergio-blue);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .accompanier-input-group button:hover {
+            background-color: #b5952f;
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -172,6 +204,12 @@
                 <p><strong>🕒 Fecha y Hora:</strong> <span id="modal-time"></span></p>
                 <p><strong>📍 Lugar:</strong> <span id="modal-location"></span></p>
                 <p><strong>ℹ️ Detalles:</strong> <span id="modal-desc"></span></p>
+                <div class="accompanier-input-group">
+                    <label for="accompanier-input"><strong>Acompañamiento Ciencias del Deporte:</strong></label>
+                    <input type="text" id="accompanier-input" placeholder="Nombre del encargado...">
+                    <button id="save-accompanier-btn">Guardar</button>
+                    <span id="save-status" style="color: green; font-size: 0.8rem; display: none;">¡Guardado!</span>
+                </div>
             </div>
         </div>
     </div>
@@ -216,6 +254,19 @@
             var calendarEl = document.getElementById('calendar');
             var modal = document.getElementById("eventModal");
             var span = document.getElementsByClassName("close")[0];
+            var currentEventKey = null;
+
+            // Save Accompanier logic
+            document.getElementById('save-accompanier-btn').addEventListener('click', function () {
+                if (currentEventKey) {
+                    var val = document.getElementById('accompanier-input').value;
+                    localStorage.setItem('ascun_acc_' + currentEventKey, val);
+
+                    var status = document.getElementById('save-status');
+                    status.style.display = 'inline';
+                    setTimeout(() => status.style.display = 'none', 2000);
+                }
+            });
 
             // Setup Calendar
             var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -272,6 +323,11 @@
                     document.getElementById('modal-time').innerText = dateStr;
                     document.getElementById('modal-location').innerText = info.event.extendedProps.location;
                     document.getElementById('modal-desc').innerText = info.event.extendedProps.description;
+
+                    // Load Accompanier from localStorage
+                    currentEventKey = info.event.title + '_' + info.event.start.getTime();
+                    var savedName = localStorage.getItem('ascun_acc_' + currentEventKey);
+                    document.getElementById('accompanier-input').value = savedName ? savedName : '';
 
                     // Show Modal
                     modal.style.display = "block";
