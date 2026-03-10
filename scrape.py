@@ -1,4 +1,4 @@
-import urllib.request
+import cloudscraper
 from bs4 import BeautifulSoup
 import json
 import re
@@ -28,9 +28,14 @@ try:
     print("Iniciando modo fantasma. Esperando...")
     time.sleep(random.uniform(1.5, 4.5))
     
-    req = urllib.request.Request(url, headers=headers)
-    # Added strict timeout of 15 seconds to prevent Actions from hanging forever
-    html = urllib.request.urlopen(req, timeout=15).read()
+    # Using cloudscraper to bypass Cloudflare/WAF block of Datacenter IPs (GitHub Actions)
+    scraper = cloudscraper.create_scraper(browser={'browser': 'chrome', 'platform': 'windows', 'desktop': True})
+    response = scraper.get(url, headers=headers, timeout=20)
+    
+    if response.status_code != 200:
+        raise Exception(f"HTTP Error: {response.status_code}")
+        
+    html = response.text
     soup = BeautifulSoup(html, 'html.parser')
     
     # In the new site format, matches are usually listed in list-group-items
