@@ -21,10 +21,15 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Wait Random Duration (Jitter)
+      - name: Install Playwright browsers
         run: |
-          echo "Waiting a random time up to 45 mins to avoid bot bans..."
-          sleep $((RANDOM % 2700))
+          python -m playwright install chromium
+          python -m playwright install-deps chromium
+
+      - name: Wait Random Jitter
+        run: |
+          echo "Esperando tiempo aleatorio para evitar detección..."
+          sleep $((RANDOM % 120 + 10))
 
       - name: Run scraper
         run: |
