@@ -79,6 +79,8 @@
         /* Modal Styles */
         .modal {
             display: none;
+            align-items: center;
+            justify-content: center;
             position: fixed;
             z-index: 1000;
             left: 0;
@@ -90,7 +92,7 @@
 
         .modal-content {
             background-color: #fefefe;
-            margin: 15% auto;
+            margin: 0;
             padding: 25px;
             border-radius: 12px;
             width: 90%;
@@ -330,8 +332,8 @@
                     var savedName = localStorage.getItem('ascun_acc_' + currentEventKey);
                     document.getElementById('accompanier-input').value = savedName ? savedName : '';
 
-                    // Show Modal
-                    modal.style.display = "block";
+                    // Show Modal with Flexbox centering
+                    modal.style.display = "flex";
                 }
             });
 
