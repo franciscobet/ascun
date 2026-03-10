@@ -5,12 +5,18 @@ on:
     - cron: '0 8 * * *' # Run every day at 08:00 UTC
   workflow_dispatch: # Allow manual trigger
 
+# CRITICAL: grant write access so the bot can push data.json back to the repo
+permissions:
+  contents: write
+
 jobs:
   scrape:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -40,4 +46,5 @@ jobs:
           git config --global user.name "AI Scraper Bot"
           git config --global user.email "bot@vibe.com"
           git add data.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update ASCUN Calendar Data" && git push)
+          git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update ASCUN Calendar Data"
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
