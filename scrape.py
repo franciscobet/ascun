@@ -23,7 +23,7 @@ manual_events = [
         "title": "⚽ F1.1 Grupo - Torneo de Fútbol Sala Masculino",
         "raw_text": "Partido programado manualmente | Universidad Sergio Arboleda vs Universidad Nacional",
         "start": "2026-03-13T17:00:00",
-        "location": "Sede por confirmar"
+        "location": "Universidad Nacional"
     }
 ]
 
