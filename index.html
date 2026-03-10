@@ -79,8 +79,6 @@
         /* Modal Styles */
         .modal {
             display: none;
-            align-items: center;
-            justify-content: center;
             position: fixed;
             z-index: 1000;
             left: 0;
@@ -92,13 +90,17 @@
 
         .modal-content {
             background-color: #fefefe;
-            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             padding: 25px;
             border-radius: 12px;
             width: 90%;
             max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-            position: relative;
         }
 
         .close {
@@ -332,8 +334,8 @@
                     var savedName = localStorage.getItem('ascun_acc_' + currentEventKey);
                     document.getElementById('accompanier-input').value = savedName ? savedName : '';
 
-                    // Show Modal with Flexbox centering
-                    modal.style.display = "flex";
+                    // Show Modal
+                    modal.style.display = "block";
                 }
             });
 
