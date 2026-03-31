@@ -30,6 +30,24 @@
         "location": "Colegio Nicolas Esguerra, Coliseo"
     },
     {
+        "title": "F1.2 Grupo Grupo BTorneo de Voleibol Masculina Liga UniversitariaGrupo B",
+        "raw_text": "| \n                    mar 12                             | 19:00 | \n | \n |   | VVO  | \n | \n | \n | \n | \n            Finalizada  | \n | \n | \n | \n | \n            F1.2 Grupo Grupo B                             | Torneo de Voleibol Masculina Liga Universitaria  | \n | Grupo B | \n | \n | \n | \n                    3                 | \n | \n | Universidad Sergio Arboleda. | \n | \n | \n                    2                 | \n | \n | Universidad de Los Andes | \n | \n | \n | Coliseo U. de Los Andes, Coliseo Voleibol | \n |",
+        "start": "2026-03-12T19:00:00",
+        "location": "Coliseo U. de Los Andes, Coliseo Voleibol"
+    },
+    {
+        "title": "F1.2 Grupo Grupo BTorneo de Fútbol Sala Masculina Liga UniversitariaGrupo B",
+        "raw_text": "| \n                    mar 13                             | 17:30 | \n | \n |   | FBS  | \n | \n | \n | \n | \n            Resultado oficial  | \n | \n | \n | \n | \n            F1.2 Grupo Grupo B                             | Torneo de Fútbol Sala Masculina Liga Universitaria  | \n | Grupo B | \n | \n | \n | \n                    1                 | \n | \n | Universidad Nacional de Colombia | \n | \n | \n                    3                 | \n | \n | Universidad Sergio Arboleda. | \n | \n | \n | Concha Acústica U. Nal , Coliseo | \n |",
+        "start": "2026-03-13T17:30:00",
+        "location": "Concha Acústica U. Nal , Coliseo"
+    },
+    {
+        "title": "F2.1 Grupo Grupo ATorneo de Fútbol Masculina Liga UniversitariaGrupo A",
+        "raw_text": "| \n                    mar 16                             | 13:00 | \n | \n |   | FBL  | \n | \n | \n | \n | \n            Resultado oficial  | \n | \n | \n | \n | \n            F2.1 Grupo Grupo A                             | Torneo de Fútbol Masculina Liga Universitaria | \n | Grupo A | \n | \n | \n | \n                    2                 | \n | \n | Universidad Pedagógica Nacional | \n | \n | \n                    1                 | \n | \n | Universidad Sergio Arboleda. | \n | \n | \n | Universidad Pedagógica Sede Valmaria, Cancha | \n |",
+        "start": "2026-03-16T13:00:00",
+        "location": "Universidad Pedagógica Sede Valmaria, Cancha"
+    },
+    {
         "title": "⚽ F1.1 Grupo - Torneo de Fútbol Sala Masculino",
         "raw_text": "Partido programado manualmente | Universidad Sergio Arboleda vs Universidad Nacional",
         "start": "2026-03-13T17:00:00",
