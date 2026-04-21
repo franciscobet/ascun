@@ -1,51 +1,23 @@
 [
     {
-        "title": "F1.1 Grupo Grupo BTorneo de Voleibol Femenina Liga UniversitariaGrupo B",
-        "raw_text": "| \n                    mar 10                             | 14:00 | \n | \n |   | VVO  | \n | \n | \n | \n | \n            Resultado oficial  | \n | \n | \n | \n | \n            F1.1 Grupo Grupo B                             | Torneo de Voleibol Femenina Liga Universitaria  | \n | Grupo B | \n | \n | \n | \n                    3                 | \n | \n | Universidad Sergio Arboleda. | \n | \n | \n                    0                 | \n | \n | UDCA | \n | \n | \n | UDCA, Coliseo | \n |",
-        "start": "2026-03-10T14:00:00",
-        "location": "UDCA, Coliseo"
+        "title": "⚽ Fútbol ASCUN: Sergio Arboleda vs U. de la Sabana",
+        "start": "2026-03-10T12:00:00",
+        "location": "Cancha Universidad de la Sabana"
     },
     {
-        "title": "F1.3 Grupo Grupo ATorneo de Baloncesto Masculina Liga UniversitariaGrupo A",
-        "raw_text": "| \n                    mar 10                             | 17:00 | \n | \n |   | BKB  | \n | \n | \n | \n | \n            Resultado oficial  | \n | \n | \n | \n | \n            F1.3 Grupo Grupo A                             | Torneo de Baloncesto Masculina Liga Universitaria  | \n | Grupo A | \n | \n | \n | \n                    57                 | \n | \n | Universidad Sergio Arboleda. | \n | \n | \n                    38                 | \n | \n | Fundación Universidad Central | \n | \n | \n | Colegio Nicolas Esguerra, Coliseo | \n |",
-        "start": "2026-03-10T17:00:00",
-        "location": "Colegio Nicolas Esguerra, Coliseo"
+        "title": "Fútbol Sala ASCUN: Sergio Arboleda vs U. Nacional",
+        "start": "2026-03-15T14:00:00",
+        "location": "Coliseo Universidad Nacional"
     },
     {
-        "title": "F1.3 Grupo Grupo ATorneo de Fútbol Femenina Liga UniversitariaGrupo A",
-        "raw_text": "| \n                    mar 12                             | 14:00 | \n | \n |   | FBL  | \n | \n | \n | \n | \n            Resultado oficial  | \n | \n | \n | \n | \n            F1.3 Grupo Grupo A                             | Torneo de Fútbol Femenina Liga Universitaria | \n | Grupo A | \n | \n | \n | \n                    3                 | \n | \n | UDCA | \n | \n | \n                    0                 | \n | \n | Universidad Sergio Arboleda. | \n | \n | \n | UDCA, Cancha de fútbol | \n |",
-        "start": "2026-03-12T14:00:00",
-        "location": "UDCA, Cancha de fútbol"
+        "title": "Baloncesto Femenino ASCUN: Sergio Arboleda vs Javeriana",
+        "start": "2026-03-18T16:30:00",
+        "location": "Coliseo Sergio Arboleda"
     },
     {
-        "title": "F1.3 Grupo Grupo ATorneo de Fútbol Masculina Liga UniversitariaGrupo A",
-        "raw_text": "| \n                    mar 12                             | 16:00 | \n | \n |   | FBL  | \n | \n | \n | \n | \n            Resultado oficial  | \n | \n | \n | \n | \n            F1.3 Grupo Grupo A                             | Torneo de Fútbol Masculina Liga Universitaria | \n | Grupo A | \n | \n | \n | \n                    0                 | \n | \n | UDCA | \n | \n | \n                    2                 | \n | \n | Universidad Sergio Arboleda. | \n | \n | \n | UDCA, Cancha de fútbol | \n |",
-        "start": "2026-03-12T16:00:00",
-        "location": "UDCA, Cancha de fútbol"
-    },
-    {
-        "title": "F1.1 Grupo Grupo BTorneo de Baloncesto Femenina Liga UniversitariaGrupo B",
-        "raw_text": "| \n                    mar 12                             | 17:00 | \n | \n |   | BKB  | \n | \n | \n | \n | \n            Resultado oficial  | \n | \n | \n | \n | \n            F1.1 Grupo Grupo B                             | Torneo de Baloncesto Femenina Liga Universitaria  | \n | Grupo B | \n | \n | \n | \n                    49                 | \n | \n | Universidad Sergio Arboleda. | \n | \n | \n                    39                 | \n | \n | Corporación Universitaria Minuto de Dios Bogotá | \n | \n | \n | Colegio Nicolas Esguerra, Coliseo | \n |",
-        "start": "2026-03-12T17:00:00",
-        "location": "Colegio Nicolas Esguerra, Coliseo"
-    },
-    {
-        "title": "F1.2 Grupo Grupo BTorneo de Voleibol Masculina Liga UniversitariaGrupo B",
-        "raw_text": "| \n                    mar 12                             | 19:00 | \n | \n |   | VVO  | \n | \n | \n | \n | \n            Finalizada  | \n | \n | \n | \n | \n            F1.2 Grupo Grupo B                             | Torneo de Voleibol Masculina Liga Universitaria  | \n | Grupo B | \n | \n | \n | \n                    3                 | \n | \n | Universidad Sergio Arboleda. | \n | \n | \n                    2                 | \n | \n | Universidad de Los Andes | \n | \n | \n | Coliseo U. de Los Andes, Coliseo Voleibol | \n |",
-        "start": "2026-03-12T19:00:00",
-        "location": "Coliseo U. de Los Andes, Coliseo Voleibol"
-    },
-    {
-        "title": "F1.2 Grupo Grupo BTorneo de Fútbol Sala Masculina Liga UniversitariaGrupo B",
-        "raw_text": "| \n                    mar 13                             | 17:30 | \n | \n |   | FBS  | \n | \n | \n | \n | \n            Resultado oficial  | \n | \n | \n | \n | \n            F1.2 Grupo Grupo B                             | Torneo de Fútbol Sala Masculina Liga Universitaria  | \n | Grupo B | \n | \n | \n | \n                    1                 | \n | \n | Universidad Nacional de Colombia | \n | \n | \n                    3                 | \n | \n | Universidad Sergio Arboleda. | \n | \n | \n | Concha Acústica U. Nal , Coliseo | \n |",
-        "start": "2026-03-13T17:30:00",
-        "location": "Concha Acústica U. Nal , Coliseo"
-    },
-    {
-        "title": "F2.1 Grupo Grupo ATorneo de Fútbol Masculina Liga UniversitariaGrupo A",
-        "raw_text": "| \n                    mar 16                             | 13:00 | \n | \n |   | FBL  | \n | \n | \n | \n | \n            Resultado oficial  | \n | \n | \n | \n | \n            F2.1 Grupo Grupo A                             | Torneo de Fútbol Masculina Liga Universitaria | \n | Grupo A | \n | \n | \n | \n                    2                 | \n | \n | Universidad Pedagógica Nacional | \n | \n | \n                    1                 | \n | \n | Universidad Sergio Arboleda. | \n | \n | \n | Universidad Pedagógica Sede Valmaria, Cancha | \n |",
-        "start": "2026-03-16T13:00:00",
-        "location": "Universidad Pedagógica Sede Valmaria, Cancha"
+        "title": "Voleibol ASCUN: Sergio Arboleda vs U. Andes",
+        "start": "2026-03-22T10:00:00",
+        "location": "Polideportivo U. Andes"
     },
     {
         "title": "⚽ F1.1 Grupo - Torneo de Fútbol Sala Masculino",
